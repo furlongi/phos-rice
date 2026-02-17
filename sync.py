@@ -15,7 +15,7 @@ from rich.progress import (
 )
 
 HOME = os.path.expanduser("~")
-CONF_PATH = f"{HOME}/.config"
+CONF_PATH = os.path.join(HOME, ".config")
 
 DEVICE_CONF = "custom_device.conf"
 
@@ -75,7 +75,7 @@ class SyncConfigs:
 
             # Copy the files
             for service, color in params:
-                path = f"{CONF_PATH}/{service}/"
+                path = os.path.join(CONF_PATH, service)
                 count = self.count_files(path)
                 colorname = "blue" if color is None else color
 
