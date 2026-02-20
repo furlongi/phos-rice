@@ -2,12 +2,15 @@
 
 This is a rice setup made for hyprland and Opensuse.
 
+It is not meant to be plug and play since this is my own custom setup. But I am making it public for anyone to reference and/or copy.
+
 # Setup:
 
 ## **sync.py (optional)**
 
-This is a script to push and pull these dot files with the github folder and `~/.config`. More info at the bottom.
+This is a script to push and pull these dot files between the github folder and `~/.config`. More info at the bottom. This is made for changing device specific dotfiles between for example a desktop setup and laptop setup.
 
+Requirements:
 - Python
 - rich
 
@@ -24,14 +27,21 @@ Plugins would need to be built and installed manually.
 To build Hyprland:
 https://wiki.hypr.land/Getting-Started/Installation/#manual
 
+Install the documented requirements:
 ```
-zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" "pkgconfig(xcb-errors)" glslang-devel Mesa-libGLESv3-devel tomlplusplus-devel
+sudo zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" "pkgconfig(xcb-errors)" glslang-devel Mesa-libGLESv3-devel tomlplusplus-devel
 ```
 
-(may be incomplete)
-
+Install additional libraries for build to pass (may be incomplete):
 ```
 sudo zypper in re2-devel muparser-devel hyprwire-devel hyprland-protocols-devel glaze-devel pugixml-devel
+```
+
+Download the repository. I recommend in the `/tmp` folder.
+```
+cd /tmp
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
 ```
 
 Building will fail because Hyprland relies on `glaze-devel` at version ~3, but Opensuse installs verion ~4.
@@ -41,9 +51,9 @@ To resolve the build failures:
 
 Especially for `/start/src/helpers/Nix.cpp`.
 
+Then build:
+
 ```
-git clone --recursive https://github.com/hyprwm/Hyprland
-cd Hyprland
 make all
 ```
 
@@ -120,3 +130,46 @@ But for laptop, I pass `--device laptop`.
 
 Within `.conf/`, these device specific files are stored as `custom_device.conf`.
 Example: `.conf/hypr/custom_device.conf`.
+
+# Fixes
+## Steam
+Steam for some reason either:
+- Will not launch under wayland due to steamwebhelper infinitely looping on failure
+- Cannot be killed. Will restart itself due to thinking it crashed on error
+
+To resolve the first:
+```
+env = SDL_VIDEODRIVER, x11
+```
+
+To resolve the second:
+Turn off GPU acceleration in steam settings.
+
+You can probably force steam to run with the above issues by doing `STEAM_RUNTIME=0 steam`.
+
+Hyprland's [solution](https://wiki.hypr.land/Configuring/Uncommon-tips--tricks/#minimize-steam-instead-of-killing) does work, but `windowunmap` will unmap Steam from initializing again under wayland due to lost mapping (from what I understand), so its PID needs to be stored ahead of time to know how it will be unmapped. But that is extra work.
+
+## Discord
+Discord will not close correctly and crash when trying to kill it and produce memory leaks.
+Also screen recording will not work under wayland.
+
+Add the following launch option:
+```
+--enable-features=UseOzonePlatform --ozone-platform=wayland
+```
+Can either be done to the keybind or in the `.desktop` typically found `/usr/share/applications/discord.desktop`
+
+## AMD GPU - Crash After Suspend
+(potential solution)
+
+When using high frame rate monitors with high display port version, it is possible to get this error due to timing of communication between the GPU and waking monitor:
+```
+kernel: [drm:retrieve_link_cap [amdgpu]] *ERROR* retrieve_link_cap: Read receiver caps dpcd data failed
+```
+It is also possible that on an idle GPU, Hyprland randomly crashes and reboots.
+
+Current fix is to add this to the grub/refind or other boot loader kernel parameter arguments:
+```
+amdgpu.dpm=1 amdgpu.ppfeaturemask=0xf7fff
+```
+This enables Dynamic Power Management, which can bring more stability by adjusting the core clocks. And disables PP_GFXOFF_MASK, the  "Dynamic Graphics Engine Power Control" that causes the idle GPU issues.

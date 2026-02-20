@@ -135,7 +135,7 @@ class SyncConfigs:
         self, conf_path: str, conf_name: str, progress: Progress, task: TaskID
     ):
         source, destin = self.direction(
-            f"{conf_path}{DEVICE_CONF}",
+            f"{conf_path}/{DEVICE_CONF}",
             f"./.config/{conf_name}/device/{device_type}.conf",
         )
 
