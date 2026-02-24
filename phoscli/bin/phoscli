@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Utility script for running phoscli
+
+cd "$(dirname $0)/../src" || exit
+
+python3 -m phoscli "$@"

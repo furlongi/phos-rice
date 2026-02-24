@@ -104,6 +104,7 @@ sudo zypper in discord
 # sync.py
 
 This is a python script to sync the files from the Github repo into the `.conf/` folder.
+Although right now it does not handle deleted files.
 
 ```
 python3 sync.py
@@ -173,3 +174,16 @@ Current fix is to add this to the grub/refind or other boot loader kernel parame
 amdgpu.dpm=1 amdgpu.ppfeaturemask=0xf7fff
 ```
 This enables Dynamic Power Management, which can bring more stability by adjusting the core clocks. And disables PP_GFXOFF_MASK, the  "Dynamic Graphics Engine Power Control" that causes the idle GPU issues.
+
+Investigating these other params. It could be a GPU vram issue:
+
+amdgpu.reset_method=2 amdgpu.noretry=0 pcie_aspm=off
+
+persistence:
+amdgpu.reset_method=2
+
+vram:
+amdgpu.noretry=0 amdgpu.ppfeaturemask=0xfffffff
+
+bootsplash:
+initcall_blacklist=simpledrm_platform_driver_init

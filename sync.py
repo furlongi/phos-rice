@@ -55,6 +55,8 @@ class SyncConfigs:
                 # NAME, TEXT COLOR, BAR COLOR
                 ("hypr", "blue"),
                 ("swaync", "yellow"),
+                ("fish", "cyan"),
+                ("kitty", "red"),
             ]
 
             mainTask = progress.add_task(
