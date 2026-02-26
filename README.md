@@ -18,7 +18,7 @@ Requirements:
 sudo zypper in python313 python313-rich
 ```
 
-### Hyprland
+## Hyprland
 
 Can be installed via zypper. But Opensuse does not include hyprpm due to a bug https://bugzilla.opensuse.org/show_bug.cgi?id=1218422.
 
@@ -60,6 +60,49 @@ make all
 ```
 sudo make install
 ```
+
+## Quickshell
+Quickshell is not available as a package in Opensuse.
+https://git.outfoxxed.me/quickshell/quickshell/src/branch/master/BUILD.md
+
+```
+sudo zypper in cmake qt6-base-devel qt6-declarative-devel qt6-declarative-private-devel qt6-shadertools-devel spirv-tools-devel pkgconf cli11-devel qt6-wayland-devel qt6-wayland-private-devel qt6-waylandclient-private-devel libpolkit-qt6-1-devel jemalloc-devel jemalloc qt6-svg-devel
+```
+
+Opensuse does not have a breakpad library available, so disable crash reporter.
+```
+cmake -GNinja -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCRASH_REPORTER=OFF -DCMAKE_C_FLAGS="-I/usr/include/wayland" -DCMAKE_CXX_FLAGS="-I/usr/include/wayland"
+```
+
+```
+cmake --build build
+```
+
+```
+sudo cmake --install build
+```
+
+## AGS / Astal
+
+https://aylur.github.io/astal/guide/installation
+
+Astal dependencies:
+```
+sudo zypper install meson vala vala-cmake-modules valadoc gobject-introspection-devel wayland-protocols-devel gtk3-devel gtk-layer-shell-devel gtk4-devel gtk4-layer-shell-devel libvaladoc-0_56-devel valadoc-doclet-devhelp valadoc-doclet-gtkdoc valadoc-doclet-html
+``` 
+
+Astal IO
+Due to a `graphviz` package, building will fail. Edit the `meson.build` with these edits:
+https://github.com/Aylur/astal/issues/372
+
+```
+cd lib/astal/io
+meson setup build
+meson install -C build
+```
+
+
+
 
 ## **Plugins**
 
