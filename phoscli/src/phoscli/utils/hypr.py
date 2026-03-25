@@ -10,25 +10,25 @@ def active_workspace() -> Dict:
     return json.loads(out)
 
 
-def switch_workspace(workspace_name: str) -> int:
+def switch_workspace(workspace_name: str) -> (int, str):
     return _hyprwrapper_disp(f"workspace {workspace_name}")
 
 
-def move_to_workspace(workspace_name: str) -> int:
+def move_to_workspace(workspace_name: str) -> (int, str):
     return _hyprwrapper_disp(f"movetoworkspace {workspace_name}")
 
 
-def move_to_monitor(monitor_name: str) -> int:
+def move_to_monitor(monitor_name: str) -> (int, str):
     return _hyprwrapper_disp(f"movewindow mon:{monitor_name}")
 
 
-def _hyprwrapper(arg: str) -> int:
-    return process(f"{_HYPR} {arg}")
+def _hyprwrapper(arg: str) -> str:
+    return process(f"{_HYPR} {arg}")[1]
 
 
-def _hyprwrapper_disp(arg: str) -> int:
-    return process(f"{_HYPR} dispatch {arg}")
+def _hyprwrapper_disp(arg: str) -> str:
+    return process(f"{_HYPR} dispatch {arg}")[1]
 
 
 def _hyprwrapper_read(arg: str) -> str:
-    return process_read(f"{_HYPR} {arg}")
+    return process_read(f"{_HYPR} {arg}")[1]

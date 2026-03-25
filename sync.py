@@ -3,7 +3,6 @@ import os
 from shutil import copy2, copytree
 from time import sleep
 
-from blueman.main.PulseAudioUtils import ArgumentError
 from rich.progress import (
     BarColumn,
     Progress,
@@ -57,6 +56,7 @@ class SyncConfigs:
                 ("swaync", "yellow"),
                 ("fish", "cyan"),
                 ("kitty", "red"),
+                ("ags", "blue")
             ]
 
             mainTask = progress.add_task(

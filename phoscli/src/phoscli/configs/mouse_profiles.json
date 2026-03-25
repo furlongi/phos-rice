@@ -1,0 +1,13 @@
+{
+    "default_target": "502",
+    "502": {
+        "mc": {
+            "game": "Modded Minecraft",
+            "profile": 0
+        },
+        "nms": {
+            "game": "No Man's Sky",
+            "profile": 1
+        }
+    }
+}

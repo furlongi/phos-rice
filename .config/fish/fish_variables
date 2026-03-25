@@ -1,4 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/home/ivan/Dev/hypr\x2drice\x2dphos/cli\x1e\x2dUa\x1e/home/ivan/Dev/hypr\x2drice\x2dphos/cli/\x1e/home/ivan/Dev/hypr\x2drice\x2dphos/phoscli/bin/
+SETUVAR __fish_initialized:3800
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_user_paths:\x2dU\x1e/home/main/Dev/hypr\x2drice\x2dphos/phoscli/bin/

@@ -1,5 +1,5 @@
 import argparse
-from phoscli.commands import workspace, tiling
+from phoscli.commands import workspace, tiling, cpu, ram, ratbagctl
 
 
 def parse() -> str:
@@ -46,16 +46,44 @@ def parse() -> str:
         help="Used for debugging, prints an test output",
     )
 
-    # Triling
-    workspace_parser = subparser.add_parser(
+    # Tiling
+    tiling_parser = subparser.add_parser(
         "tiling", help="Workaround for hy3 multi monitor"
     )
-    workspace_parser.set_defaults(command=tiling.Tiling)
-    workspace_parser.add_argument(
+    tiling_parser.set_defaults(command=tiling.Tiling)
+    tiling_parser.add_argument(
         "direction",
         nargs=1,
         choices=["1", "-1", "l", "r"],
         help="The direction to move left or right to the next workspace",
     )
+
+    ### Integrations
+    # CPU Usage
+    cpu_parser = subparser.add_parser(
+        "cpu", help="Returns CPU usage",
+    )
+    cpu_parser.set_defaults(command=cpu.Cpu)
+
+    ram_parser = subparser.add_parser(
+        "ram", help="Returns Ram usage",
+    )
+    ram_parser.set_defaults(command=ram.Ram)
+
+    # ratbagctl
+    rat_parser = subparser.add_parser(
+        "ratbagctl",
+        aliases=["rat", "mouse"],
+        help="Sets gaming mouse profile"
+    )
+    rat_parser.add_argument(
+        "profile",
+        nargs=1
+    )
+    rat_parser.add_argument(
+        "-d",
+        "--device",
+    )
+    rat_parser.set_defaults(command=ratbagctl.RatBagCtl)
 
     return parser, parser.parse_args()
