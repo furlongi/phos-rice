@@ -6,6 +6,8 @@ It is not meant to be plug and play since this is my own custom setup. But I am 
 
 There is an abandoned Opensuse branch that has its own set of instructions.
 
+# !!! This is in progress and nowhere near done !!!
+
 # Setup
 
 ## Applications
