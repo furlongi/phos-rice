@@ -1,5 +1,5 @@
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import Bar from "../widget/barWidget/Bar"
+import { Astal, Gdk } from "ags/gtk4"
+import Bar from "../widget/Bar"
 
 export default function DP1(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor

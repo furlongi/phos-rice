@@ -1,7 +1,3 @@
-import app from "ags/gtk4/app"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-
-import GLib from "gi://GLib?version=2.0"
 import Hyprland from "gi://AstalHyprland"
 
 import { createBinding, createComputed, With } from "ags"

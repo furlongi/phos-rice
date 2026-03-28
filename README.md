@@ -1,8 +1,5 @@
 # hypr-rice: Phos
 
-! Deprecated / On Hold:
-Hyprland has issues with dpms on/off that keep crashing hyprland, making it very annoying to use for long periods.
-
 This is a rice setup made for Hyprland and Fedora.
 
 It is not meant to be plug and play since this is my own custom setup. But I am making it public for anyone to reference and/or copy.
@@ -16,7 +13,7 @@ There is an abandoned Opensuse branch that has its own set of instructions.
 Regular applications:
 
 ```
-sudo dnf install kitty fish wofi dolphin kate chromium fuse-libs wireguard-tools vlc docker-cli docker-compose freerdp
+sudo dnf install kitty fish wofi dolphin kate chromium fuse-libs wireguard-tools vlc docker-cli docker-compose freerdp qt6ct git pip
 ```
 
 Set fish as default shell
@@ -25,7 +22,7 @@ Set fish as default shell
 chsh -s $(which fish)
 ```
 
-Set dolphin as default
+Set dolphin as default (if non kde)
 
 ```
 xdg-mime default org.kde.dolphin.desktop inode/directory
@@ -120,7 +117,7 @@ https://aylur.github.io/astal/guide/installation
 Astal dependencies:
 
 ```
-sudo dnf install meson vala valadoc gobject-introspection-devel wayland-protocols-devel gtk3-devel gtk-layer-shell-devel gtk4-devel gtk4-layer-shell-devel
+sudo dnf install meson vala valadoc gobject-introspection-devel wayland-protocols-devel gtk3-devel gtk-layer-shell-devel gtk4-devel gtk4-layer-shell-devel cmake
 ```
 
 ```
@@ -152,7 +149,7 @@ cd ags
 AGS dependencies:
 
 ```
-sudo dnf install npm meson ninja golang gobject-introspection-devel gtk3-devel gtk-layer-shell-devel gtk4-devel gtk4-layer-shell-devel
+sudo dnf install npm meson ninja golang gobject-introspection-devel gtk3-devel gtk-layer-shell-devel gtk4-devel gtk4-layer-shell-devel gjs-devel sass json-glib-devel
 ```
 
 ```
@@ -161,41 +158,39 @@ meson setup build
 meson install -C build
 ```
 
+For Hyprland Astal integration:
 ```
 sudo dnf install astal
 ```
 
-AGS Libraries:
-
-Hyprland
-
-```
-sudo dnf install meson vala valadoc json-glib-devel gobject-introspection-devel
-```
-
-## **sync.py (optional)**
-
-This is a script to push and pull these dot files between the github folder and `~/.config`. More info at the bottom. This is made for changing device specific dotfiles between for example a desktop setup and laptop setup.
-
-Requirement:
-
-```
-pip install rich
-```
 
 # TODO
 
 - Install sway notification center command
 - Enable timeshift
+- Improve the astal bar (this will take a while)
+    - command center
+    - wifi ctl
+    - bluetooth ctl
+    - vpn ctl
+    - theme switcher
+    - audio ctl
+    - tray
+- Customize wofi
 
 ### Applications
 
 # sync.py
 
-This is a python script to sync the files from the Github repo into the `.conf/` folder.
-Although right now it does not handle deleted files.
+This is a python script to sync the files from the Github repo into the `.conf/` folder, and vice versa.
 
-There is a bug that when creating a new folder, progress counts it as 0%.
+This handles specific device configs, like between a desktop to a laptop setup which will be different from each other in minor areas.
+
+
+```
+pip install rich
+```
+
 
 ```
 python3 sync.py
@@ -233,7 +228,6 @@ Steam for some reason either:
 - Cannot be killed. Will restart itself due to thinking it crashed on error
 
 To resolve the first:
-
 ```
 env = SDL_VIDEODRIVER, x11
 ```
