@@ -1,6 +1,7 @@
 from argparse import Namespace
-from typing import List, Dict
-from phoscli.utils.hypr import active_workspace, switch_workspace, move_to_workspace
+from typing import Dict, List
+
+from phoscli.utils.hypr import active_workspace, move_to_workspace, switch_workspace
 
 
 class Workspace:
@@ -10,7 +11,7 @@ class Workspace:
     is_window_mode: bool
     is_test: bool
 
-    def monitor_spaces(self, focused_workspace) -> [int]:
+    def monitor_spaces(self, focused_workspace) -> List[int]:
         match focused_workspace:
             case "DP-1":
                 return [1, 2, 3, 4]
@@ -23,8 +24,8 @@ class Workspace:
             case _:
                 return [9]
 
-    def single_monitor_spaces(self) -> int:
-        return [1, 2, 3, 4]
+    def single_monitor_spaces(self) -> List[int]:
+        return [1, 2, 3, 4, 5]
 
     def __init__(self, args: Namespace):
         self.args = args
