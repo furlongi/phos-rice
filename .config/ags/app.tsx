@@ -5,6 +5,7 @@ import style from "./styles/main.scss"
 import DP1 from "./monitor/dp1"
 import DP2 from "./monitor/dp2"
 import DP3 from "./monitor/dp3"
+import eDP1 from "./monitor/edp1"
 
 app.start({
   css: style,
@@ -20,6 +21,9 @@ app.start({
           break
         case "DP-3":
           DP3(monitor)
+          break
+        case "eDP-1":
+          eDP1(monitor)
           break
         default:
           break

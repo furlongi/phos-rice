@@ -21,6 +21,10 @@ export default function Workspaces(configs: { [key: string]: string }) {
       Workspaces: ["7", "8"],
       CurrentActive: "6",
     },
+    "eDP-1": {
+      Workspaces: ["1", "2", "3", "4", "5"],
+      CurrentActive: "1",
+    },
   }
 
   return (

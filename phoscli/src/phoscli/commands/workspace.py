@@ -18,6 +18,8 @@ class Workspace:
                 return [5, 6]
             case "DP-3":
                 return [7, 8]
+            case "eDP-1":
+                return [1, 2, 3, 4, 5]
             case _:
                 return [9]
 
