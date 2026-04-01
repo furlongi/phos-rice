@@ -165,6 +165,38 @@ For Hyprland Astal integration:
 sudo dnf install astal
 ```
 
+## Laptop Specific
+
+### Libinput - Touchpad Gestures
+Install https://github.com/bulletmark/libinput-gestures
+```
+sudo gpasswd -a $USER input
+```
+
+```
+dnfi libinput libinput-utils
+```
+
+```
+cd /tmp
+git clone https://github.com/bulletmark/libinput-gestures.git
+cd libinput-gestures
+sudo ./libinput-gestures-setup install
+```
+
+```
+libinput-gestures-setup autostart start
+```
+
+### Sleep on Lid Close
+Go to `/etc/systemd/logind.conf`
+
+and add the following:
+```
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=suspend
+```
+
 
 # TODO
 

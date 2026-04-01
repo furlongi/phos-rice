@@ -60,6 +60,8 @@ class SyncConfigs:
                 ("ags", "blue", {"ignore_hidden": True}),
             ]
 
+            single_files = ["libinput-gestures.conf"]
+
             mainTask = progress.add_task(
                 "[red]Copying Configs...",
                 total=len(params),
@@ -91,6 +93,13 @@ class SyncConfigs:
                 self.sync(path, service, progress, task, configs)
                 progress.update(mainTask, advance=1)
 
+            task = progress.add_task(
+                f"[white]Copying Singular files...",
+                total=len(single_files),
+                mcolor="white",
+            )
+            self.sync_singles(single_files, CONF_PATH, progress, task)
+
     def sync(
         self,
         conf_path: str,
@@ -117,6 +126,22 @@ class SyncConfigs:
             progress.update(task, advance=1)
 
         self.handle_device_config(conf_path, conf_name, progress, task)
+
+    def sync_singles(
+        self, target_files: List[str], conf_path: str, progress: Progress, task: TaskID
+    ):
+        dot_path = f"./.config"
+        source_path, destin_path = self.direction(conf_path, dot_path)
+
+        for file in target_files:
+            src_path = f"{source_path}/{file}"
+            dst_path = f"{destin_path}/"
+
+            if self.verbose:
+                print(f"---- [FILE] {source_path}/{file} -> {destin_path}/{file}")
+
+            copy2(src_path, dst_path)
+            progress.update(task, advance=1)
 
     def copy(
         self,

@@ -1,5 +1,5 @@
 import argparse
-from phoscli.commands import workspace, tiling, cpu, ram, ratbagctl
+from phoscli.commands import workspace, tiling, cpu, ram, ratbagctl, battery
 
 
 def parse() -> str:
@@ -65,10 +65,17 @@ def parse() -> str:
     )
     cpu_parser.set_defaults(command=cpu.Cpu)
 
+    # Memory Usage
     ram_parser = subparser.add_parser(
         "ram", help="Returns Ram usage",
     )
     ram_parser.set_defaults(command=ram.Ram)
+
+    # Battery
+    battery_parser = subparser.add_parser(
+        "battery", help="Returns battery data",
+    )
+    battery_parser.set_defaults(command=battery.Battery)
 
     # ratbagctl
     rat_parser = subparser.add_parser(

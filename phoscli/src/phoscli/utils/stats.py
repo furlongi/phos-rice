@@ -16,3 +16,33 @@ def ram_usage_percent() -> int:
     if ram_usage is None or len(ram_usage) < 1:
         return None
     return round(float(ram_usage), 1)
+
+def battery_usage_stats() -> Dict[str, str]:
+    ok, battery_info = process_read("acpi -b")
+    if ok == 1:
+        print("ERROR", battery_info)
+        return None
+    matched = re.match(r"Battery\s\d:\s([\w\s]+),\s(\d+)%(?:,\s(\d{2}:\d{2}:\d{2}))?", battery_info)
+    state = str(matched.group(1)).strip()
+
+    match state:
+        case "Discharging":
+            tstate = "battery"
+        case "Not charging":
+            tstate = "battery"
+        case "Charging":
+            tstate = "charge"
+        case "Full":
+            tstate = "full"
+        case _:
+            tstate = "Unknown"
+
+    result = {
+        "state": state,
+        "percent": matched.group(2),
+        "time": matched.group(3),
+        "tstate": tstate,
+        "percent_level": int(matched.group(2)) // 10
+    }
+    
+    return result
