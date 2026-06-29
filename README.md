@@ -212,9 +212,9 @@ HandleLidSwitchExternalPower=suspend
     - tray
 - Customize wofi
 
-### Applications
+# Tools
 
-# sync.py
+## sync.py
 
 This is a python script to sync the files from the Github repo into the `.conf/` folder, and vice versa.
 

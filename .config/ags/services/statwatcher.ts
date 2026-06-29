@@ -20,12 +20,12 @@ interval(6500, () => {
   setRamUsage(ramUse + "% ")
 })
 
-interval(2300, () => {
-  let batteryInf = exec("phoscli battery")
-  let jBatteryInf = JSON.parse(batteryInf)
+// interval(2300, () => {
+//   let batteryInf = exec("phoscli battery")
+//   let jBatteryInf = JSON.parse(batteryInf)
 
-  setBatteryPercent(jBatteryInf["percent"])
-  setBatteryTime(jBatteryInf["time"])
-  setBatteryState(jBatteryInf["tstate"])
-  setBatteryLevel(parseInt(jBatteryInf["percent_level"]))
-})
+//   setBatteryPercent(jBatteryInf["percent"])
+//   setBatteryTime(jBatteryInf["time"])
+//   setBatteryState(jBatteryInf["tstate"])
+//   setBatteryLevel(parseInt(jBatteryInf["percent_level"]))
+// })

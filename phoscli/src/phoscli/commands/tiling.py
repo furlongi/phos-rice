@@ -1,5 +1,6 @@
 from argparse import Namespace
-from typing import List, Dict
+from typing import Dict, List
+
 from phoscli.utils.hypr import active_workspace, move_to_monitor
 
 
@@ -10,13 +11,13 @@ class Tiling:
     def adjacent_monitor(self, focused_monitor) -> [str]:
         match focused_monitor:
             case "DP-1":
-                return ["DP-3", "DP-2"]
+                return ["DP-2", "DP-3"]
             case "DP-2":
-                return ["DP-1", None]
-            case "DP-3":
                 return ["HDMI-A-1", "DP-1"]
+            case "DP-3":
+                return ["DP-1", None]
             case _:
-                return [None, "DP-3"]
+                return [None, "DP-2"]
 
     def __init__(self, args: Namespace):
         direction = args.direction[0]
