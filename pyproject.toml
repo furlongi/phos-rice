@@ -1,0 +1,9 @@
+
+[tool.pyright]
+reportAny = false
+reportUnknownMemberType = false
+reportUnknownLambdaType = false
+reportMissingParameterType = false
+reportCallInDefaultInitializer = false
+
+

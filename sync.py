@@ -246,6 +246,7 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--verbose", action="store_true")
     parser.add_argument("-p", "--push", action="store_true")
     parser.add_argument("-s", "--slow", action="store_true")
+    parser.add_argument("-d", "--dry", action="store_true")
     parser.add_argument("--device")
 
     args = parser.parse_args()
@@ -253,8 +254,12 @@ if __name__ == "__main__":
     is_verbose = args.verbose
     is_push = args.push
     is_slow = args.slow
+    dry_run = args.dry
     device_type = args.device or "desktop"
 
     SyncConfigs(
-        verbose=is_verbose, is_push=is_push, slow=is_slow, device_type=device_type
+        verbose=is_verbose,
+        is_push=is_push,
+        slow=is_slow,
+        device_type=device_type,
     ).sync_files()
