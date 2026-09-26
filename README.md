@@ -93,9 +93,9 @@ are not included right now.
 ## Hyprland
 
 ```
-sudo dnf copr enable solopasha/hyprland
+sudo dnf copr enable lionheartp/Hyprland
 sudo dnf install hyprland
-sudo dnf install hyprpolkitagent hypridle
+sudo dnf install hyprpolkitagent hypridle hyprland-guiutils
 ```
 
 Hyprpm dependencies:
