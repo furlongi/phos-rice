@@ -74,7 +74,7 @@ class Sync:
                     sleep(0.2)
                 print(
                     self._log(
-                        f"Copying {self.source_path}/{self.service}/{folder}/{file}"
+                        f"Copying {self.source_path}/{self.service}/{folder}/{file.strip("/")}"
                     )
                 )
 

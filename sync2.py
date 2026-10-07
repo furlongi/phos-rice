@@ -13,7 +13,11 @@ DOT_SETTINGS: dict[
         "custom_folders": ["custom_device"],
     },
     "fish": {"color": "cyan"},
-    "kitty": {"color": "red", "ignore_files": ["kitty.conf.bak"]},
+    "kitty": {
+        "color": "red",
+        "ignore_files": ["kitty.conf.bak"],
+        "custom_files": ["custom_device.conf"],
+    },
     "noctalia": {
         "color": "purple",
         "ignore_files": ["private.toml"],
