@@ -1,0 +1,280 @@
+
+[dock]
+monitors = [ "DP-1" ]
+
+
+[idle.behavior.lock]
+timeout = 600.0
+
+
+[idle.behavior.lock-and-suspend]
+timeout = 960.0
+
+
+[idle.behavior.screen-off]
+timeout = 900.0
+
+
+[notification]
+monitors = [ "DP-1" ]
+
+
+[osd]
+monitors = [ "DP-1" ]
+
+
+## Wallpapers ##
+[wallpaper]
+directory = "/home/main/Pictures/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/main/Pictures/wallpaper/xb2_landscape_wide_4096x1707.jpg"
+
+    [wallpaper.last]
+    path = "/home/main/Pictures/wallpaper/xb2_landscape_wide_4096x1707.jpg"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/main/Pictures/wallpaper/xb2_landscape_wide_4096x1707.jpg"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/main/Pictures/wallpaper/xb2_landscape_wide_4096x1707.jpg"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/main/Pictures/wallpaper/xb2_landscape_wide_4096x1707.jpg"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Noctalia"
+    palette_source = "wallpaper"
+    path = "/home/main/Pictures/wallpaper/xb2_landscape_wide_4096x1707.jpg"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Noctalia"
+    palette_source = "wallpaper"
+    path = "/home/main/Pictures/wallpaper/ghost_in_shell_3840x2160.png"
+    theme_mode = "dark"
+
+
+
+## Lockscreen ##
+
+[lockscreen]
+wallpaper = "/home/main/Pictures/hyprlock.png"
+
+[lockscreen_widgets]
+widget_order = [
+    "lockscreen-widget-0000000000000005",
+    "lockscreen-login-box@DP-3",
+    "lockscreen-login-box@DP-2",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004",
+    "lockscreen-widget-0000000000000006",
+    "lockscreen-widget-0000000000000007",
+    "lockscreen-widget-0000000000000008"
+]
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 82.0
+    box_width = 720.0
+    cx = 1720.0
+    cy = 1122.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "login_box"
+
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.5
+        background_radius = 20.0
+        center_password_text = true
+        input_opacity = 1.0
+        input_radius = 20.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_media = false
+        show_session_buttons = false
+        show_unlock_hint = true
+        show_weather = false
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 540.0
+    cy = 1827.0
+    output = "DP-2"
+    placement_height = 1920.0
+    placement_width = 1080.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.5
+        background_radius = 20.0
+        center_password_text = true
+        input_opacity = 0.48999999999999999
+        input_radius = 20.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 720.0
+    cy = 2429.0
+    output = "DP-3"
+    placement_height = 2560.0
+    placement_width = 1440.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.5
+        background_radius = 20.0
+        center_password_text = true
+        input_opacity = 0.5
+        input_radius = 20.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 112.0
+    box_width = 176.0
+    cx = 3304.0
+    cy = 1312.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "volume"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background = true
+        background_color = "on_primary"
+        background_opacity = 0.59999999999999998
+        background_padding = 0
+        background_radius = 15
+        device = "output"
+        glyph = ""
+        scroll_step = 10
+        shadow = false
+        show_device = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 208.0
+    box_width = 608.0
+    cx = 1720.0
+    cy = 672.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        background = false
+        center_text = true
+        clock_style = "digital"
+        font_family = "Noto Sans Mono Medium"
+        format = "{:%I:%M%P}"
+        shadow = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+    box_height = 64.0
+    box_width = 80.0
+    cx = 1536.0
+    cy = 1327.98828125
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+        background = true
+        color = "tertiary"
+        command = "noctalia msg session suspend"
+        glyph = "weather-moon"
+        hover_background = "outline"
+        label = ""
+        variant = "default"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
+    box_height = 64.0
+    box_width = 80.0
+    cx = 1656.0
+    cy = 1327.98828125
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
+        background = true
+        color = "tertiary"
+        command = "noctalia msg session reboot"
+        glyph = "reboot"
+        hover_background = "outline"
+        label = ""
+        variant = "default"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
+    box_height = 64.0
+    box_width = 80.0
+    cx = 1784.0
+    cy = 1327.98828125
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
+        background = true
+        color = "tertiary"
+        command = "noctalia msg session logout"
+        glyph = "door-exit"
+        hover_background = "outline"
+        label = ""
+        variant = "default"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
+    box_height = 64.0
+    box_width = 80.0
+    cx = 1904.0
+    cy = 1327.98828125
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
+        background = true
+        color = "tertiary"
+        command = "noctalia msg session shutdown"
+        glyph = "shutdown"
+        hover_background = "outline"
+        label = ""
+        variant = "default"
+

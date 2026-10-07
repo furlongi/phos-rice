@@ -1,0 +1,269 @@
+[accessibility]
+ui_scale = 1.05
+
+
+[audio]
+enable_overdrive = true
+sound_volume = 0.0
+
+
+[calendar]
+enabled = true
+
+
+[control_center]
+hidden_tabs = [ "monitor", "weather" ]
+width = 1000
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "session"
+
+
+[dock]
+active_monitor_only = true
+active_scale = 1.25
+background_opacity = 0.75
+border = "primary"
+border_width = 1.5
+cross_axis_padding = 5
+icon_size = 44
+inactive_opacity = 0.69
+inactive_scale = 0.75
+item_spacing = 15
+launcher_custom_image_colorize = true
+launcher_icon = "square-chevron-down"
+launcher_position = "start"
+magnification_scale = 1.75
+main_axis_padding = 20
+margin_edge = 1
+radius = 12
+reserve_space = false
+show_dots = true
+show_instance_count = false
+smart_auto_hide = true
+
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+pre_action_fade_seconds = 10
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+
+
+[lockscreen]
+blur_intensity = 0.0
+fingerprint = false
+transition = [ "honeycomb" ]
+transition_duration = 1000
+
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+
+    [lockscreen_widgets.grid]
+    cell_size = 8
+    major_interval = 4
+    visible = true
+
+
+[notification]
+background_opacity = 0.84999998100101948
+history_retention_hours = 4
+max_visible = 10
+offset_x = 5
+offset_y = 10
+position = "bottom_right"
+scale = 0.90000000596046448
+
+
+[osd]
+background_opacity = 0.84999998100101948
+offset_x = 10
+offset_y = 10
+position = "top_right"
+position_vertical = "top_right"
+
+    [osd.kinds]
+    keyboard_backlight = false
+    keyboard_layout = false
+    media = false
+
+
+[plugins]
+enabled = [ "jamesfeeder/special-workspaces", "noctalia/bongocat", "noctalia/mpvpaper" ]
+
+
+[shell]
+app_icon_color = "primary"
+corner_radius_scale = 1.05
+font_family = "Open Sans"
+password_style = "random"
+
+    [shell.animation]
+    speed = 1.10
+
+    [shell.launcher]
+    compact = true
+    fetch_exchange_rates = false
+
+        [shell.launcher.providers.panels]
+        global = false
+
+    [shell.panel]
+    floating_layer = "top"
+    open_near_click_control_center = true
+    open_near_click_session = true
+    open_near_click_wallpaper = true
+    polkit_placement = "attached"
+    transparency_mode = "glass"
+
+
+    [shell.screen_corners]
+    size = 20
+
+    [shell.screenshot]
+    freeze_screen = false
+
+    [shell.session]
+    show_shortcuts = false
+
+
+[system.monitor]
+cpu_poll_seconds = 3
+gpu_usage_critical_threshold = 80
+memory_poll_seconds = 3
+network_poll_seconds = 5
+
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Rose Pine Moon Alt"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "faithful"
+
+    [theme.templates]
+    builtin_ids = [ "hyprland", "kitty" ]
+
+
+[wallpaper]
+transition = [ "honeycomb" ]
+fill_mode = "crop"
+
+
+[weather]
+enabled = false
+
+
+## Widgets ##
+[widget.bluetooth]
+scale = 1.10
+
+    [widget.bluetooth.actions]
+    middle = "none"
+
+[widget.cat]
+audio_spectrum = true
+input_devices = [ "/dev/input/by-id/*-event-*" ]
+scale = 1.10
+tappy_mode = true
+type = "noctalia/bongocat:cat"
+
+    [widget.cat.actions]
+    left = "nightlight-force-toggle"
+    middle = "none"
+
+[widget.cpu]
+glyph = "cpu"
+
+    [widget.cpu.actions]
+    middle = "none"
+
+[widget.media]
+art_size = 25
+hide_when_no_media = true
+max_length = 120
+show_progress = true
+title_scroll = "on_hover"
+
+    [widget.media.actions]
+    middle = "none"
+
+[widget.network]
+scale = 1.10
+show_label = false
+vpn_status = "both"
+
+    [widget.network.actions]
+    middle = "none"
+
+[widget.notifications]
+scale = 1.10
+
+    [widget.notifications.actions]
+    middle = "none"
+
+[widget.ram]
+glyph = "stack-2-filled"
+label_show_units = false
+
+    [widget.ram.actions]
+    middle = "none"
+
+[widget.special-workspaces]
+active_color = "tertiary"
+enable_scroll = false
+hide_inactive = true
+interactive = false
+type = "jamesfeeder/special-workspaces:special-workspaces"
+
+[widget.sysmon]
+stat = "gpu_usage"
+
+[widget.tray]
+scale = 1.10
+
+    [widget.tray.actions]
+    middle = "none"
+
+[widget.workspaces]
+active_pill_size = 2.70
+capsule_radius = "auto"
+empty_color = "on_surface_variant"
+inactive_pill_size = 0.90
+occupied_color = "on_surface"
+scale = 1.05
+scroll_repeat = "steps"
+show_labels = false
+show_tooltip = false
+
+    [widget.workspaces.actions]
+    middle = "none"
+
+

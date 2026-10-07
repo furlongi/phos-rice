@@ -1,5 +1,4 @@
 from argparse import Namespace
-from typing import Dict, List
 
 from phoscli.utils.hypr import active_workspace, move_to_workspace, switch_workspace
 
@@ -11,20 +10,20 @@ class Workspace:
     is_window_mode: bool
     is_test: bool
 
-    def monitor_spaces(self, focused_workspace) -> List[int]:
+    def monitor_spaces(self, focused_workspace: str) -> list[int]:
         match focused_workspace:
             case "DP-1":
-                return [1, 2, 3, 4]
+                return [1, 2, 3, 4, 5]
             case "DP-2":
-                return [5, 6]
+                return [6, 7]
             case "DP-3":
-                return [7, 8]
+                return [8, 9]
             case "eDP-1":
                 return [1, 2, 3, 4, 5]
             case _:
-                return [9]
+                return [10]
 
-    def single_monitor_spaces(self) -> List[int]:
+    def single_monitor_spaces(self) -> list[int]:
         return [1, 2, 3, 4, 5]
 
     def __init__(self, args: Namespace):
@@ -43,17 +42,19 @@ class Workspace:
         self.is_test = self.args.test
 
     def run(self):
-        workspace_info = active_workspace()
+        workspace_info: dict[str, str] = active_workspace()
         focused = workspace_info["monitor"]
-        focused_workspace_num = workspace_info["id"]
+        focused_workspace_num: int = int(workspace_info["id"])
 
         if self.is_single_screen:
-            avail_workspaces: list = self.single_monitor_spaces()
+            avail_workspaces: list[int] = (  # pyright: ignore[reportRedeclaration]
+                self.single_monitor_spaces()
+            )
         else:
-            avail_workspaces: list = self.monitor_spaces(focused)
+            avail_workspaces: list[int] = self.monitor_spaces(focused)
 
         if focused_workspace_num not in avail_workspaces:
-            # Currently inside a workspace out of limits, go back
+            # Currently inside an out of bound workspace, go back
             next_workspace = avail_workspaces[0]
         else:
             index = avail_workspaces.index(focused_workspace_num)
@@ -69,6 +70,6 @@ class Workspace:
                 f"Next: {next_workspace}; Monitor: {focused}; Cur: {focused_workspace_num}; Avail: {avail_workspaces}"
             )
         elif self.is_window_mode:
-            move_to_workspace(next_workspace)
+            _ = move_to_workspace(next_workspace, focused)
         else:
-            switch_workspace(next_workspace)
+            _ = switch_workspace(next_workspace, focused)

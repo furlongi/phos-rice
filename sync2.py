@@ -9,13 +9,16 @@ DOT_SETTINGS: dict[
 ] = {
     "hypr": {
         "color": "blue",
-        "custom_files": ["custom_device.conf", "hyprlock.conf"],
+        "custom_files": ["custom_device.lua"],
         "custom_folders": ["custom_device"],
     },
-    "swaync": {"color": "yellow"},
     "fish": {"color": "cyan"},
     "kitty": {"color": "red", "ignore_files": ["kitty.conf.bak"]},
-    "ags": {"color": "blue", "ignore_hidden": True},
+    "noctalia": {
+        "color": "purple",
+        "ignore_files": ["private.toml"],
+        "custom_files": ["custom.toml"],
+    },
 }
 
 SINGLE_FILES: dict[str, list[str]] = {
