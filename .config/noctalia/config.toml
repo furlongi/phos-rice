@@ -11,6 +11,14 @@ sound_volume = 0.0
 enabled = true
 
 
+[battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
+warning_threshold = 10
+
+
+[battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_1"]
+warning_threshold = 20
+
+
 [control_center]
 hidden_tabs = [ "monitor", "weather" ]
 width = 1000
