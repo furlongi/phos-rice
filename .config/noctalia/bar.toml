@@ -1,0 +1,47 @@
+[bar]
+order = [ "main-bar", "second-bar" ]
+
+    [bar.main-bar]
+    background_opacity = 0.89999997988343239
+    border = "tertiary"
+    border_width = 0.5
+    capsule = true
+    capsule_border = "secondary"
+    capsule_foreground = "primary"
+    capsule_radius = 8
+    capsule_thickness = 0.79999998584389687
+    contact_shadow = true
+    end = [ "audio_visualizer", "media" ]
+    font_scale = 1.2899999786168337
+    margin_ends = 0
+    padding = 20
+    radius = 80
+    radius_top_left = 0
+    radius_top_right = 0
+    scale = 1.0500000081956387
+    start = [ "workspaces", "special-workspaces" ]
+    thickness = 35
+
+    [bar.second-bar]
+    background_opacity = 0.89999997988343239
+    border = "tertiary"
+    border_width = 0.5
+    capsule = true
+    capsule_border = "secondary"
+    capsule_foreground = "primary"
+    capsule_radius = 8
+    capsule_thickness = 0.79999998584389687
+    center = [ "active_window" ]
+    contact_shadow = true
+    enabled = true
+    end = [ "tray", "notifications", "network", "bluetooth", "battery", "session" ]
+    font_scale = 1.2899999786168337
+    margin_ends = 0
+    padding = 20
+    position = "bottom"
+    radius = 80
+    radius_bottom_left = 0
+    radius_bottom_right = 0
+    scale = 1.0500000081956387
+    start = [ "cat", "cpu", "ram", "sysmon", "taskbar" ]
+    thickness = 35
