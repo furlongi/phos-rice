@@ -22,6 +22,19 @@ monitors = [ "DP-1" ]
 [osd]
 monitors = [ "DP-1" ]
 
+## Bars ##
+[bar.main-bar]
+font_scale = 1.29
+padding = 20
+scale = 1.05
+thickness = 35
+
+[bar.second-bar]
+font_scale = 1.29
+padding = 20
+scale = 1.05
+thickness = 35
+
 
 ## Wallpapers ##
 [wallpaper]
