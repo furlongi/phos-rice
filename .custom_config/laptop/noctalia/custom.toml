@@ -21,6 +21,12 @@ monitors = [ "eDP-1" ]
 [osd]
 monitors = [ "eDP-1" ]
 
+[widget.battery]
+display_mode = "graphic"
+
+    [widget.battery.actions]
+    middle = "none"
+
 
 ## Wallpapers ##
 [wallpaper]
