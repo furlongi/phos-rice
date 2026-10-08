@@ -1,18 +1,17 @@
-
 [dock]
 monitors = [ "eDP-1" ]
 
 
 [idle.behavior.lock]
-timeout = 600.0
+timeout = 300.0
 
 
 [idle.behavior.lock-and-suspend]
-timeout = 960.0
+timeout = 420.0
 
 
 [idle.behavior.screen-off]
-timeout = 900.0
+timeout = 400.0
 
 
 [notification]
@@ -28,11 +27,24 @@ monitors = [ "eDP-1" ]
 directory = "/home/main/Pictures/wallpaper"
 
 
+## Bars ##
+[bar.main-bar]
+font_scale = 1.20
+padding = 15
+scale = 1.00
+thickness = 27
+
+[bar.second-bar]
+font_scale = 1.20
+padding = 15
+scale = 1.00
+thickness = 27
+
 
 ## Lockscreen ##
 
 [lockscreen]
-wallpaper = "/home/main/Pictures/hyprlock.png"
+wallpaper = "/home/main/Pictures/desktop/chrono-cross-forest.png"
 
 [lockscreen_widgets]
 widget_order = [
@@ -46,16 +58,15 @@ widget_order = [
 ]
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 82.0
-    box_width = 720.0
-    cx = 1720.0
-    cy = 1122.0
+    box_height = 70.0
+    box_width = 496.0
+    cx = 720.0
+    cy = 591.0
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "login_box"
-
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
         background_color = "surface_variant"
@@ -64,7 +75,7 @@ widget_order = [
         center_password_text = true
         input_opacity = 1.0
         input_radius = 20.0
-        layout = "regular"
+        layout = "compact"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = false
@@ -76,11 +87,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
     box_height = 112.0
     box_width = 176.0
-    cx = 3304.0
-    cy = 1312.0
+    cx = 1328.0
+    cy = 826.0
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "volume"
 
@@ -99,11 +110,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
     box_height = 208.0
     box_width = 608.0
-    cx = 1720.0
-    cy = 672.0
+    cx = 720.0
+    cy = 397.5
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "clock"
 
@@ -118,11 +129,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
     box_height = 64.0
     box_width = 80.0
-    cx = 1536.0
-    cy = 1327.98828125
+    cx = 528.0
+    cy = 794.0
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "button"
 
@@ -138,11 +149,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
     box_height = 64.0
     box_width = 80.0
-    cx = 1656.0
-    cy = 1327.98828125
+    cx = 656.0
+    cy = 794.0
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "button"
 
@@ -158,11 +169,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
     box_height = 64.0
     box_width = 80.0
-    cx = 1784.0
-    cy = 1327.98828125
+    cx = 784.0
+    cy = 794.0
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "button"
 
@@ -178,11 +189,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
     box_height = 64.0
     box_width = 80.0
-    cx = 1904.0
-    cy = 1327.98828125
+    cx = 912.0
+    cy = 794.0
     output = "eDP-1"
-    placement_height = 1440.0
-    placement_width = 3440.0
+    placement_height = 900.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "button"
 

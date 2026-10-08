@@ -11,12 +11,14 @@ sound_volume = 0.0
 enabled = true
 
 
-[battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
-warning_threshold = 10
+[battery]
+warning_threshold = 25
 
+    [battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
+    warning_threshold = 10
 
-[battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_1"]
-warning_threshold = 20
+    [battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_1"]
+    warning_threshold = 20
 
 
 [control_center]
@@ -171,7 +173,7 @@ builtin = "Noctalia"
 community_palette = "Rose Pine Moon Alt"
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "hyprland", "kitty" ]
@@ -258,12 +260,12 @@ scale = 1.10
     middle = "none"
 
 [widget.workspaces]
-active_pill_size = 2.70
+active_pill_size = 2.60
 capsule_radius = "auto"
 empty_color = "on_surface_variant"
-inactive_pill_size = 0.90
+inactive_pill_size = 0.87
 occupied_color = "on_surface"
-scale = 1.05
+scale = 1
 scroll_repeat = "steps"
 show_labels = false
 show_tooltip = false
@@ -271,4 +273,6 @@ show_tooltip = false
     [widget.workspaces.actions]
     middle = "none"
 
-
+[widget.clock]
+format = "{:%I:%M%P}"
+scale = 1.05
